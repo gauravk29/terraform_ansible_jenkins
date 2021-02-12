@@ -1,0 +1,20 @@
+---
+- name: Install Openstack
+  hosts: openstack
+
+  tasks:
+  - name: Execute a command using the shell module
+  
+    shell: hostname
+    register: result
+  - debug:
+       #var: result
+       var=result.stdout_lines  # prints output of the above executed command
+       
+  - name: Execute command using the shell module
+  
+    shell: sudo apt-get update
+    register: result
+  - debug:
+       #var: result
+       var=result.stdout_lines  # prints output of the above executed command

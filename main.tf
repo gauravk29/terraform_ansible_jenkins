@@ -160,7 +160,7 @@ resource "aws_instance" "web2" {
 	  echo "[openstack]" | tee -a openstack.ini;
 	  echo "${aws_instance.web2.public_ip} ansible_user=${var.ansible_user} ansible_ssh_private_key_file=${var.private_key}" | tee -a openstack.ini;
       export ANSIBLE_HOST_KEY_CHECKING=False;
-	  ansible-playbook -u ${var.ansible_user} --private-key ${var.private_key} -i openstack.ini openstack.yml
+	  ansible-playbook -u ${var.ansible_user} --private-key ${var.private_key} -i openstack.ini ../playbook/openstack.yml
     
     EOT
   }
